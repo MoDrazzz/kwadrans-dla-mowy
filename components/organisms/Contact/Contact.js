@@ -21,17 +21,15 @@ const query = `
   }
 }`;
 
-const Contact = () => {
-  return (
-    <Container id="contact">
-      <ViewTitle section="KONTAKT" title="Jesteśmy gotowi, aby Cię wesprzeć!" align="center" />
-      <Paragraph align="center">Sed non risus luctus urna interdum cursus. Aliquam finibus libero quam, sed maximus libero accumsan.</Paragraph>
-      <Wrapper>
-        <ContactDetails data={mockContactDetails} />
-        <Map src={mockContactDetails.mapLink} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></Map>
-      </Wrapper>
-    </Container>
-  );
-};
+const Contact = ({ contentData }) => (
+  <Container id="contact">
+    <ViewTitle section="KONTAKT" title={contentData.title} align="center" />
+    <Paragraph align="center">{contentData.description}</Paragraph>
+    <Wrapper>
+      <ContactDetails data={contentData} />
+      <Map src={contentData.mapLink} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></Map>
+    </Wrapper>
+  </Container>
+);
 
 export default Contact;

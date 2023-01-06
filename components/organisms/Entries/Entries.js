@@ -15,7 +15,7 @@ const query = `
 }
 `;
 
-const Entries = () => {
+const Entries = ({ contentData }) => {
   const [errors, setErrors] = useState([]);
   const [alerts, setAlerts] = useState([]);
   const [errorsVisible, setErrorsVisible] = useState(false);
@@ -23,11 +23,8 @@ const Entries = () => {
 
   return (
     <Container bg="dimmed" id="entries">
-      <ViewTitle align="center" section="ZAPISY" title="Umów termin już dziś!" />
-      <Paragraph align="center">
-        Maecenas volutpat felis ex, sit amet ultrices ipsum ultrices at. Cras non aliquet sapien. Ut ex arcu, malesuada sit amet quam et, pretium
-        elementum mi.
-      </Paragraph>
+      <ViewTitle align="center" section="ZAPISY" title={contentData.title} />
+      <Paragraph align="center">{contentData.description}</Paragraph>
       <Form setErrors={setErrors} setAlerts={setAlerts} setErrorsVisible={setErrorsVisible} setAlertsVisible={setAlertsVisible} />
       <Alerts visible={errorsVisible || alertsVisible} errors={errors} alerts={alerts} />
     </Container>

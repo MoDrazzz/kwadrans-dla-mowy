@@ -9,7 +9,11 @@ import AdvantagesWrapper from 'components/molecules/AdvantagesWrapper/Advantages
 
 import { ServiceWrapper } from 'components/organisms/Service/Service.styles';
 
-const Service = ({ serviceData: { title, description, advantages } }) => (
+const Service = ({
+  serviceData: {
+    fields: { title, description, advantages },
+  },
+}) => (
   <ServiceWrapper>
     <div>
       <ServiceTitle>{title}</ServiceTitle>
@@ -17,14 +21,14 @@ const Service = ({ serviceData: { title, description, advantages } }) => (
     </div>
     <AdvantagesWrapper>
       {advantages.map((advantage, id) => {
-        return <Advantage key={id} advantageData={advantage} />
+        return <Advantage key={id} advantageData={advantage} />;
       })}
     </AdvantagesWrapper>
   </ServiceWrapper>
 );
 
 Service.propTypes = {
-  serviceData: PropTypes.object.isRequired
-}
+  serviceData: PropTypes.object.isRequired,
+};
 
 export default Service;

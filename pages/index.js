@@ -10,12 +10,13 @@ import Footer from 'components/organisms/Footer/Footer';
 import { createClient } from 'contentful';
 
 const client = createClient({
-  space: 'b1212y5qc9na',
+  space: process.env.CONTENTFUL_SPACE_ID,
   environment: 'master', // defaults to 'master' if not set
-  accessToken: 'AH1cQLwJtd5Bld11NR1O9SBlL6fR-5iBRtvYPz4gmhA',
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
 const Home = ({ content }) => {
+  console.log(content);
   return (
     <>
       <Head>
@@ -27,12 +28,12 @@ const Home = ({ content }) => {
       <Navigation />
       <main>
         <Hero contentData={content.heroScreen} />
-        <About />
-        <Services />
-        <Statistics />
-        <Entries />
-        <Contact />
-        <Footer />
+        <About contentData={content.aboutScreen} />
+        <Services contentData={content.servicesScreen} />
+        <Statistics contentData={content.statistics} />
+        <Entries contentData={content.entriesScreen} />
+        <Contact contentData={content.contactScreen} />
+        <Footer contentData={content.footer} />
       </main>
     </>
   );
