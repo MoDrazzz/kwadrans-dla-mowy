@@ -2,15 +2,15 @@
 
 Kwadrans Dla Mowy is a small company that serves neurologopedic-linguistic services in Jaworze, Poland.
 
-### Challenge
+## Challenge
 
 - Build an optimized and nice looking landing page
 - Feature of making appointments using form, that sends the user's data to an e-mail
 - Let the owner to eaisly manage displayed content by connected Content Management System
 
-### Outcome
+## Outcome
 
-- Use Figma to create the layout
+- Use [Figma][figma] to create the layout
 - Create the website using [React][react], and [Next.js][nextjs] framework
 - Use [styled-components][styled-components] library for styling
 - Implement [EmailJS][emailjs] library for sending data from form to owner's e-mail
@@ -19,13 +19,13 @@ Kwadrans Dla Mowy is a small company that serves neurologopedic-linguistic servi
 > "I was expecting a simple business card website,
 > whereas I got a complete and clear design
 > that looks so much better than I expected."
-> ~ Zofia Lisiecka, the Client
+> ~ Zofia Lisiecka, Project Owner
 
-### Live running website
+## Check the website
 
 The deployed and ready project is waiting for you at [TBA]!
 
-### Installation
+### Local version - Installation
 
 ```sh
 npm i
