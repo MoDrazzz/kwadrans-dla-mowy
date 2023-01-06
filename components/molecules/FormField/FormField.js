@@ -8,31 +8,36 @@ import Input from 'components/atoms/Input/Input';
 import Textarea from 'components/atoms/Textarea/Textarea';
 import Select from 'components/atoms/Select/Select';
 
-const FormField = ({ labelText, type, name, autoComplete, value, onChange, servicesData, isOptional }) => (
+const FormField = ({ labelText, type, name, autoComplete, value, onChange, formData, isOptional }) => (
   <FormFieldWrapper>
-    {name === "phoneNumber" ? (
+    {name === 'phoneNumber' ? (
       <>
         <Label htmlFor={name}>{labelText}</Label>
         <PhoneInputSpan />
-        <Input type={type} name={name} autoComplete={autoComplete} value={value}  onChange={onChange} phoneNumberInput="true" />
+        <Input type={type} name={name} autoComplete={autoComplete} value={value} onChange={onChange} phoneNumberInput="true" />
       </>
-    ) : type === "textarea" ? (
+    ) : type === 'textarea' ? (
       <>
         <Label htmlFor={name}>{labelText}</Label>
         <Textarea name={name} value={value} onChange={onChange} />
       </>
-    ) : type === "select" ? (
+    ) : type === 'select' ? (
       <>
         <Label htmlFor={name}>{labelText}</Label>
         <Select value={value} name={name} onChange={onChange}>
-          {servicesData.map((service, id) => (
-            <option value={service.title} key={id}>{service.title}</option>
+          {formData.services.map((service, id) => (
+            <option value={service.fields.title} key={id}>
+              {service.fields.title}
+            </option>
           ))}
         </Select>
       </>
     ) : (
       <>
-        <Label htmlFor={name}>{labelText}{isOptional ? <span> (opcjonalnie)</span> : null}</Label>
+        <Label htmlFor={name}>
+          {labelText}
+          {isOptional ? <span> (opcjonalnie)</span> : null}
+        </Label>
         <Input type={type} name={name} autoComplete={autoComplete} value={value} onChange={onChange} />
       </>
     )}
@@ -40,14 +45,14 @@ const FormField = ({ labelText, type, name, autoComplete, value, onChange, servi
 );
 
 FormField.propTypes = {
-  labelText: PropTypes.string.isRequired, 
-  type: PropTypes.string.isRequired, 
+  labelText: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  autoComplete: PropTypes.string, 
-  value: PropTypes.string.isRequired, 
-  onChange: PropTypes.func.isRequired, 
-  servicesData: PropTypes.arrayOf(PropTypes.object),
-  isOptional: PropTypes.bool
-}
+  autoComplete: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  formData: PropTypes.object,
+  isOptional: PropTypes.bool,
+};
 
 export default FormField;

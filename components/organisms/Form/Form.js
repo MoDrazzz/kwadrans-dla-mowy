@@ -6,22 +6,10 @@ import emailjs from '@emailjs/browser';
 import LoadingIndicator from 'components/atoms/LoadingIndicator/LoadingIndicator';
 import FormField from 'components/molecules/FormField/FormField';
 import { FormWrapper, SubmitButton } from 'components/organisms/Form/Form.styles';
-import mockServices from 'data/mockServices';
 
-const query = `
-{
-  serviceCollection {
-    items {
-      title,
-      description,
-      advantages
-    }
-  }
-}`;
-
-const Form = ({ setAlerts, setAlertsVisible, setErrors, setErrorsVisible }) => {
+const Form = ({ setAlerts, setAlertsVisible, setErrors, setErrorsVisible, formData }) => {
   const initialFormState = {
-    service: mockServices?.[0].title,
+    service: formData.services[0].fields.title,
     fullName: '',
     phoneNum: '',
     mail: '',
@@ -106,7 +94,7 @@ const Form = ({ setAlerts, setAlertsVisible, setErrors, setErrorsVisible }) => {
         name="service"
         value={formValues.service ?? ''}
         onChange={(e) => setFormValues({ ...formValues, service: e.target.value })}
-        servicesData={mockServices}
+        formData={formData}
       />
       <FormField
         labelText="Imię i Nazwisko"

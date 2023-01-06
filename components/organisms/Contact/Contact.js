@@ -1,25 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import Map from 'components/atoms/Map/Map';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import ViewTitle from 'components/molecules/ViewTitle/ViewTitle';
 import Container from 'components/organisms/Container/Container';
 import ContactDetails from 'components/organisms/ContactDetails/ContactDetails';
-import mockContactDetails from 'data/mockContactDetails';
 
 import { Wrapper } from 'components/organisms/Contact/Contact.styles';
-
-const query = `
-{
-  contactScreen(id: "yhrow7TnORyavKyt44JEy") {
-    title,
-    description,
-    mail,
-    phoneNumber,
-    location,
-    mapLink
-  }
-}`;
 
 const Contact = ({ contentData }) => (
   <Container id="contact">

@@ -15,29 +15,26 @@ const client = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
-const Home = ({ content }) => {
-  console.log(content);
-  return (
-    <>
-      <Head>
-        <title>Kwadrans dla mowy | Pracownia neurologopedyczno-lingwistyczna</title>
-        <meta name="description" content="Kwadrans dla mowy - pracownia neurologopedyczno-lingwistyczna założona w 2023 roku. Zofia Lisiecka." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Navigation />
-      <main>
-        <Hero contentData={content.heroScreen} />
-        <About contentData={content.aboutScreen} />
-        <Services contentData={content.servicesScreen} />
-        <Statistics contentData={content.statistics} />
-        <Entries contentData={content.entriesScreen} />
-        <Contact contentData={content.contactScreen} />
-        <Footer contentData={content.footer} />
-      </main>
-    </>
-  );
-};
+const Home = ({ content }) => (
+  <>
+    <Head>
+      <title>Kwadrans dla mowy | Pracownia neurologopedyczno-lingwistyczna</title>
+      <meta name="description" content="Kwadrans dla mowy - pracownia neurologopedyczno-lingwistyczna założona w 2023 roku. Zofia Lisiecka." />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    <Navigation />
+    <main>
+      <Hero contentData={content.heroScreen} />
+      <About contentData={content.aboutScreen} />
+      <Services contentData={content.servicesScreen} />
+      <Statistics contentData={content.statistics} />
+      <Entries contentData={content.entriesScreen} formData={content.servicesScreen} />
+      <Contact contentData={content.contactScreen} />
+      <Footer contentData={content.footer} />
+    </main>
+  </>
+);
 
 export default Home;
 
