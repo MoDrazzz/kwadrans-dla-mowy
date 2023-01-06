@@ -1,19 +1,19 @@
 import React from 'react';
 
 import DisplayText from 'components/atoms/DisplayText/DisplayText';
-import LoadingIndicator from 'components/atoms/LoadingIndicator/LoadingIndicator';
 
 import { Wrapper } from 'components/organisms/LoadingScreen/LoadingScreen.styles';
 import Separator from 'components/atoms/Separator/Separator';
+import Title from 'components/atoms/Title/Title';
 
-const LoadingScreen = () => {
+const Custom404 = () => {
   return (
     <Wrapper>
-      <DisplayText color="primary">Trwa ładowanie, proszę czekać...</DisplayText>
+      <DisplayText color="primary">404</DisplayText>
       <Separator />
-      <LoadingIndicator color="primary" />
+      <Title color="primary">Nie znaleziono</Title>
     </Wrapper>
   );
 };
 
-export default LoadingScreen;
+export default Custom404;
